@@ -13,10 +13,10 @@ SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 with SessionLocal() as session:
     # Use text() to safely format your raw SQL query
-    query = text("SELECT uid, name FROM users")
+    query = text("SELECT uid, username FROM users")
     
     # Execute and pass parameters as a dictionary
-    result = session.execute(query, {"role_name": "admin"})
+    result = session.execute(query)
     
     # Fetch data (returns Row objects)
     for row in result:
